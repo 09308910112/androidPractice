@@ -21,6 +21,7 @@ public class DownloadActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_download);
+        // TODO:  2018/9/22 lpengcheng 要处理写入的权限
         initServiceConn();
         Intent intent = new Intent(this, DownloadService.class);
         startService(intent);
