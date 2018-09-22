@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">readAssets</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_sputil">SPUtilActivity</string>
+    <string name="title_activity_sqlite">SqliteActivity</string>
+    <string name="title_activity_sqlite_activitiy">SqliteActivitiy</string>
+</resources>

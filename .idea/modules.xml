@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/EventBus3.0Demo/EventBus3.0Demo.iml" filepath="$PROJECT_DIR$/EventBus3.0Demo/EventBus3.0Demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TopNewGrid/TopNewGrid.iml" filepath="$PROJECT_DIR$/TopNewGrid/TopNewGrid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aaa/aaa.iml" filepath="$PROJECT_DIR$/aaa/aaa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/androidDemo.iml" filepath="$PROJECT_DIR$/androidDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baidumapdemo/baidumapdemo.iml" filepath="$PROJECT_DIR$/baidumapdemo/baidumapdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/customview/customview.iml" filepath="$PROJECT_DIR$/customview/customview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/downloadapplication/downloadapplication.iml" filepath="$PROJECT_DIR$/downloadapplication/downloadapplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jsjavacall/jsjavacall.iml" filepath="$PROJECT_DIR$/jsjavacall/jsjavacall.iml" />
+      <module fileurl="file://$PROJECT_DIR$/longrunservice/longrunservice.iml" filepath="$PROJECT_DIR$/longrunservice/longrunservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myframe/myframe.iml" filepath="$PROJECT_DIR$/myframe/myframe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mylib/mylib.iml" filepath="$PROJECT_DIR$/mylib/mylib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/progressbarloading/progressbarloading.iml" filepath="$PROJECT_DIR$/progressbarloading/progressbarloading.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qtscrollview/qtscrollview.iml" filepath="$PROJECT_DIR$/qtscrollview/qtscrollview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/readFile/readFile.iml" filepath="$PROJECT_DIR$/readFile/readFile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rvdemo/rvdemo.iml" filepath="$PROJECT_DIR$/rvdemo/rvdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/servicedemo/servicedemo.iml" filepath="$PROJECT_DIR$/servicedemo/servicedemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/simplescanqr/simplescanqr.iml" filepath="$PROJECT_DIR$/simplescanqr/simplescanqr.iml" />
+      <module fileurl="file://$PROJECT_DIR$/slidingarcview/slidingarcview.iml" filepath="$PROJECT_DIR$/slidingarcview/slidingarcview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/statelistanimator/statelistanimator.iml" filepath="$PROJECT_DIR$/statelistanimator/statelistanimator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/x5test/x5test.iml" filepath="$PROJECT_DIR$/x5test/x5test.iml" />
+    </modules>
+  </component>
+</project>

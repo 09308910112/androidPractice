@@ -1,0 +1,13 @@
+<resources>
+
+    <!-- Base application theme. colorAccent -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@android:color/holo_green_dark</item>
+        <item name="colorAccent">@color/viewfinder_laser</item>
+    </style>
+
+
+
+</resources>

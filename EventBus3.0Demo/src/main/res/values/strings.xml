@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LPC</string>
+    <string name="draw_open">找开侧滑菜单</string>
+    <string name="draw_close">关闭侧滑菜单</string>
+</resources>

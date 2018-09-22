@@ -1,0 +1,28 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.lanyou.lpc.jsjavacall.MainActivity">
+
+    <!-- view for AdMob Interstitial Ad -->
+    <TextView
+        android:id="@+id/app_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:textSize="20dp"
+        android:text="Js 与 java 互调"
+        android:background="@color/colorAccent"
+        android:clickable="true"
+     />
+    <WebView
+        android:id="@+id/wb"
+        android:layout_below="@id/app_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </WebView>
+
+
+</RelativeLayout>
