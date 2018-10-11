@@ -20,10 +20,6 @@
         </activity>
 
         <activity android:name=".DownloadActivity"/>
-
-        <service android:name=".download.DownloadService"
-            android:enabled="true"
-            android:exported="true"/>
     </application>
 
 </manifest>

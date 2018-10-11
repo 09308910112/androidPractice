@@ -1,4 +1,4 @@
-package com.lanyou.test.downloadapplication.download;
+package com.lanyou.test.downloadlibrary;
 
 import android.os.AsyncTask;
 import android.os.Environment;
@@ -42,6 +42,7 @@ public class DownloadTask extends AsyncTask<String, Integer, Integer> {
         try {
             long downloadedLength = 0;
             String downloadUrl = params[0];
+            Log.e("lpc000","url = "+downloadedLength);
             String fileName = downloadUrl.substring(downloadUrl.lastIndexOf("/"));
             String directory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath();
             file = new File(directory + "/" + fileName);

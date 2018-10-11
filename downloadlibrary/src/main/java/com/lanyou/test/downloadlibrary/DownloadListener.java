@@ -1,4 +1,4 @@
-package com.lanyou.test.downloadapplication.download;
+package com.lanyou.test.downloadlibrary;
 
 public interface DownloadListener {
         void onProgress(int progress);
