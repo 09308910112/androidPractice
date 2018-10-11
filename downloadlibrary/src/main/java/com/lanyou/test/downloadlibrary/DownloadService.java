@@ -3,7 +3,6 @@ package com.lanyou.test.downloadlibrary;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -16,7 +15,11 @@ import android.os.Environment;
 import android.os.IBinder;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.NotificationCompat;
+import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import com.lanyou.test.downloadlibrary.Utils.DialogUtils;
+import com.lanyou.test.downloadlibrary.dialog.DownloadDialog;
 
 import java.io.File;
 
@@ -30,20 +33,23 @@ public class DownloadService extends Service {
     private static DownloadBinder mBinder;
     DownloadTask downloadTask;
 
-    public static final int download_Failed = 1;
-    public static final int download_downloading = 2;
-    public static final int download_Success = 3;
+    public int downloadStatus = Constants.DOWNLOAD_TYPE_DOWNLOAD;
+
 
     private DownloadListener listener = new DownloadListener() {
         @Override
         public void onProgress(int progress) {
+            downloadStatus = Constants.DOWNLOAD_TYPE_DOWNLOAD;
+            DialogUtils.getInstance().updateDialogUI(progress);
             getNotificationManager().notify(1, getNotification("下载中....", progress));
         }
 
         @Override
         public void onSuccess() {
             downloadTask = null;
+            downloadStatus = Constants.DOWNLOAD_TYPE_SUCCESS;
             stopForeground(true);
+            DialogUtils.getInstance().updateDialogUI(100);
             getNotificationManager().notify(1, getNotification("下载成功", -1));
             Toast.makeText(DownloadService.this, "下载成功...", Toast.LENGTH_SHORT).show();
         }
@@ -51,7 +57,9 @@ public class DownloadService extends Service {
         @Override
         public void onFailed() {
             downloadTask = null;
+            downloadStatus = Constants.DOWNLOAD_TYPE_FAILED;
             stopForeground(true);
+            DialogUtils.getInstance().dismissDialog();
             getNotificationManager().notify(1, getNotification("下载失败", -1));
             Toast.makeText(DownloadService.this, "下载失败...", Toast.LENGTH_SHORT).show();
         }
@@ -59,13 +67,16 @@ public class DownloadService extends Service {
         @Override
         public void onPaused() {
             downloadTask = null;
+            downloadStatus = Constants.DOWNLOAD_TYPE_PAUSED;
             Toast.makeText(DownloadService.this, "下载停止...", Toast.LENGTH_SHORT).show();
         }
 
         @Override
         public void onCanceled() {
             downloadTask = null;
+            downloadStatus = Constants.DOWNLOAD_TYPE_CANCELED;
             stopForeground(true);
+            DialogUtils.getInstance().dismissDialog();
             Toast.makeText(DownloadService.this, "下载已取消...", Toast.LENGTH_SHORT).show();
         }
     };
@@ -81,6 +92,7 @@ public class DownloadService extends Service {
         if (progress >= 0) {
             builder.setContentText(progress + "%");
             builder.setProgress(100, progress, false);
+
         }
         return builder.build();
     }
@@ -99,18 +111,24 @@ public class DownloadService extends Service {
 
 
     String downloadUrl;
+    Context context;
 
     public class DownloadBinder extends Binder {
 
-        public void startDownload(String url) {
+        public void startDownload(Context mContext, String url) {
             if (downloadTask == null) {
+                context = mContext;
+                initProgressBar(mContext);
                 downloadUrl = url;
                 downloadTask = new DownloadTask(listener);
                 downloadTask.execute(downloadUrl);
                 setStartForeground();
-
                 Toast.makeText(DownloadService.this, "正在下载...", Toast.LENGTH_SHORT).show();
             }
+        }
+
+        private void initProgressBar(Context mContext) {
+            DialogUtils.getInstance().showDialog( mContext);
         }
 
         public void pauseDownload() {
@@ -144,6 +162,15 @@ public class DownloadService extends Service {
             mContext.unbindService(conn);
         }
 
+        /**
+         * 获取下载状态
+         *
+         * @return
+         */
+        public int getDownloadStatus() {
+            return downloadStatus;
+        }
+
     }
 
     private void setStartForeground() {
@@ -164,5 +191,9 @@ public class DownloadService extends Service {
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         manager.createNotificationChannel(chan);
         startForeground(1, getNotification("下载中啊....", 0));
+    }
+
+    public static DownloadBinder getBinder() {
+        return mBinder;
     }
 }

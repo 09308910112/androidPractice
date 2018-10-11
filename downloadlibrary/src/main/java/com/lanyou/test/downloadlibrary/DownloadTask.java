@@ -1,7 +1,6 @@
 package com.lanyou.test.downloadlibrary;
 
 import android.os.AsyncTask;
-import android.os.Environment;
 import android.util.Log;
 
 import java.io.File;
@@ -16,13 +15,11 @@ import okhttp3.Response;
 
 /**
  * Copyright (c) 2017. 深圳联友科技. All rights reserved
- * Created by lpc on 2018/9/17.
+ *
+ * @author lpc
+ * @date 2018/9/17
  */
 public class DownloadTask extends AsyncTask<String, Integer, Integer> {
-    public static final int DOWNLOAD_TYPE_SUCCESS = 0;
-    public static final int DOWNLOAD_TYPE_FAILED = 1;
-    public static final int DOWNLOAD_TYPE_PAUSED = 2;
-    public static final int DOWNLOAD_TYPE_CANCELED = 3;
 
     private boolean isCanceled = false;
     private boolean isPause = false;
@@ -42,18 +39,15 @@ public class DownloadTask extends AsyncTask<String, Integer, Integer> {
         try {
             long downloadedLength = 0;
             String downloadUrl = params[0];
-            Log.e("lpc000","url = "+downloadedLength);
-            String fileName = downloadUrl.substring(downloadUrl.lastIndexOf("/"));
-            String directory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath();
-            file = new File(directory + "/" + fileName);
+            file = Constants.getLocalDownloadApkFile();
             if (file.exists()) {
                 downloadedLength = file.length();
             }
             long contentLength = getConentLength(downloadUrl);
             if (contentLength == 0) {
-                return DOWNLOAD_TYPE_FAILED;
+                return Constants.DOWNLOAD_TYPE_FAILED;
             } else if (contentLength == downloadedLength) {
-                return DOWNLOAD_TYPE_SUCCESS;
+                return Constants.DOWNLOAD_TYPE_SUCCESS;
             }
             OkHttpClient client = new OkHttpClient();
             Request request = new Request.Builder()
@@ -64,15 +58,16 @@ public class DownloadTask extends AsyncTask<String, Integer, Integer> {
             if (response != null) {
                 is = response.body().byteStream();
                 saveFile = new RandomAccessFile(file, "rw");
+                Log.e("download", "save:" + file.getPath().toString());
                 saveFile.seek(downloadedLength);
                 byte[] b = new byte[1024];
                 int len;
                 int total = 0;
                 while ((len = is.read(b)) != -1) {
                     if (isCanceled) {
-                        return DOWNLOAD_TYPE_CANCELED;
+                        return Constants.DOWNLOAD_TYPE_CANCELED;
                     } else if (isPause) {
-                        return DOWNLOAD_TYPE_PAUSED;
+                        return Constants.DOWNLOAD_TYPE_PAUSED;
                     } else {
                         total += len;
                     }
@@ -82,7 +77,7 @@ public class DownloadTask extends AsyncTask<String, Integer, Integer> {
                 }
             }
             response.body().close();
-            return DOWNLOAD_TYPE_SUCCESS;
+            return Constants.DOWNLOAD_TYPE_SUCCESS;
         } catch (Exception e) {
             Log.e("download", "下载出错");
             e.printStackTrace();
@@ -101,7 +96,7 @@ public class DownloadTask extends AsyncTask<String, Integer, Integer> {
                 e.printStackTrace();
             }
         }
-        return DOWNLOAD_TYPE_FAILED;
+        return Constants.DOWNLOAD_TYPE_FAILED;
     }
 
     @Override
@@ -116,16 +111,16 @@ public class DownloadTask extends AsyncTask<String, Integer, Integer> {
     @Override
     protected void onPostExecute(Integer downLoadStatus) {
         switch (downLoadStatus) {
-            case DOWNLOAD_TYPE_SUCCESS:
+            case Constants.DOWNLOAD_TYPE_SUCCESS:
                 listener.onSuccess();
                 break;
-            case DOWNLOAD_TYPE_FAILED:
+            case Constants.DOWNLOAD_TYPE_FAILED:
                 listener.onFailed();
                 break;
-            case DOWNLOAD_TYPE_PAUSED:
+            case Constants.DOWNLOAD_TYPE_PAUSED:
                 listener.onPaused();
                 break;
-            case DOWNLOAD_TYPE_CANCELED:
+            case Constants.DOWNLOAD_TYPE_CANCELED:
                 listener.onCanceled();
                 break;
             default:

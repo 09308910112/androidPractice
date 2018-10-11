@@ -12,6 +12,6 @@ import android.support.v4.content.ContextCompat;
 public class PermissionsUtils {
     public static boolean hasWriteStoragePermission(Context mContext) {
         return ContextCompat.checkSelfPermission(mContext,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED;
+                Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
     }
 }

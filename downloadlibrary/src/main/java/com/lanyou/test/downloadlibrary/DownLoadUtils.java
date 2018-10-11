@@ -19,7 +19,10 @@ import static android.content.Context.BIND_AUTO_CREATE;
 public class DownLoadUtils {
     static DownloadService.DownloadBinder downloadBinder;
     static ServiceConnection conn;
-    static String downloadUrl;
+    /**
+     * 下载的apk url
+     */
+    public static String downloadUrl;
 
     /**
      * 开始下载
@@ -29,7 +32,7 @@ public class DownLoadUtils {
     public static void startDownload(Context mContext, String url) {
         if (PermissionsUtils.hasWriteStoragePermission(mContext)) {
             downloadUrl = url;
-            initServiceConn();
+            initServiceConn(mContext);
             bindDownloadService(mContext);
         } else {
             Toast.makeText(mContext, "请打开写入sd卡的权限", Toast.LENGTH_SHORT).show();
@@ -41,14 +44,19 @@ public class DownLoadUtils {
      * 暂停下载
      */
     public static void pauseDownload() {
-        downloadBinder.pauseDownload();
+        if (downloadBinder != null) {
+            downloadBinder.pauseDownload();
+        }
+
     }
 
     /**
      * 取消下载
      */
     public static void cancelDownload() {
-        downloadBinder.cancelDownload();
+        if (downloadBinder != null) {
+            downloadBinder.cancelDownload();
+        }
     }
 
     private static void bindDownloadService(Context mContext) {
@@ -57,12 +65,12 @@ public class DownLoadUtils {
         mContext.bindService(intent, conn, BIND_AUTO_CREATE);
     }
 
-    private static void initServiceConn() {
+    private static void initServiceConn(final Context mContext) {
         conn = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
                 downloadBinder = (DownloadService.DownloadBinder) service;
-                downloadBinder.startDownload(downloadUrl);
+                downloadBinder.startDownload(mContext, downloadUrl);
                 Log.e("download", "已连接");
             }
 

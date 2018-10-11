@@ -26,5 +26,13 @@
         android:layout_marginTop="10dp"
         android:onClick="cancel"
         android:text="取消"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:onClick="dialog"
+        android:text="dialog"/>
+
+
 
 </LinearLayout>
