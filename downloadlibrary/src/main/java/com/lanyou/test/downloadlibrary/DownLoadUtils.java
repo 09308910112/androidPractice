@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.Toast;
+
+import com.lanyou.test.downloadlibrary.Utils.PermissionsUtils;
 
 import static android.content.Context.BIND_AUTO_CREATE;
 
@@ -16,7 +19,7 @@ import static android.content.Context.BIND_AUTO_CREATE;
 public class DownLoadUtils {
     static DownloadService.DownloadBinder downloadBinder;
     static ServiceConnection conn;
-   static String downloadUrl;
+    static String downloadUrl;
 
     /**
      * 开始下载
@@ -24,9 +27,14 @@ public class DownLoadUtils {
      * @param mContext
      */
     public static void startDownload(Context mContext, String url) {
-        downloadUrl = url;
-        initServiceConn();
-        bindDownloadService(mContext);
+        if (PermissionsUtils.hasWriteStoragePermission(mContext)) {
+            downloadUrl = url;
+            initServiceConn();
+            bindDownloadService(mContext);
+        } else {
+            Toast.makeText(mContext, "请打开写入sd卡的权限", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     /**
