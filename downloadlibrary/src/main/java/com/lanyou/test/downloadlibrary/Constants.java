@@ -10,6 +10,7 @@ import java.io.File;
  */
 public class Constants {
 
+    public static final String TAG = "download_lib";
     /**
      * 下载成功
      */

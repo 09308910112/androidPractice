@@ -15,11 +15,9 @@ import android.os.Environment;
 import android.os.IBinder;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.NotificationCompat;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.lanyou.test.downloadlibrary.Utils.DialogUtils;
-import com.lanyou.test.downloadlibrary.dialog.DownloadDialog;
 
 import java.io.File;
 
@@ -30,18 +28,23 @@ import java.io.File;
  */
 public class DownloadService extends Service {
     String NOTIFICATION_CHANNEL_ID = "com.example.simpleapp";
+
+    private int notifyId = 1;
     private static DownloadBinder mBinder;
     DownloadTask downloadTask;
 
     public int downloadStatus = Constants.DOWNLOAD_TYPE_DOWNLOAD;
+    //下载进度
+    private int downloadProgress;
 
 
     private DownloadListener listener = new DownloadListener() {
         @Override
         public void onProgress(int progress) {
             downloadStatus = Constants.DOWNLOAD_TYPE_DOWNLOAD;
-            DialogUtils.getInstance().updateDialogUI(progress);
-            getNotificationManager().notify(1, getNotification("下载中....", progress));
+            DialogUtils.getInstance().updateProgress(progress);
+            downloadProgress = progress;
+            getNotificationManager().notify(notifyId, getNotification("下载中...", progress));
         }
 
         @Override
@@ -49,8 +52,8 @@ public class DownloadService extends Service {
             downloadTask = null;
             downloadStatus = Constants.DOWNLOAD_TYPE_SUCCESS;
             stopForeground(true);
-            DialogUtils.getInstance().updateDialogUI(100);
-            getNotificationManager().notify(1, getNotification("下载成功", -1));
+            DialogUtils.getInstance().updateProgress(100);
+            getNotificationManager().notify(notifyId, getNotification("下载成功", -1));
             Toast.makeText(DownloadService.this, "下载成功...", Toast.LENGTH_SHORT).show();
         }
 
@@ -60,7 +63,7 @@ public class DownloadService extends Service {
             downloadStatus = Constants.DOWNLOAD_TYPE_FAILED;
             stopForeground(true);
             DialogUtils.getInstance().dismissDialog();
-            getNotificationManager().notify(1, getNotification("下载失败", -1));
+            getNotificationManager().notify(notifyId, getNotification("下载失败", -1));
             Toast.makeText(DownloadService.this, "下载失败...", Toast.LENGTH_SHORT).show();
         }
 
@@ -68,7 +71,9 @@ public class DownloadService extends Service {
         public void onPaused() {
             downloadTask = null;
             downloadStatus = Constants.DOWNLOAD_TYPE_PAUSED;
-            Toast.makeText(DownloadService.this, "下载停止...", Toast.LENGTH_SHORT).show();
+            DialogUtils.getInstance().updateDialog();
+            getNotificationManager().notify(notifyId, getNotification("下载暂停", downloadProgress));
+            Toast.makeText(DownloadService.this, "下载暂停...", Toast.LENGTH_SHORT).show();
         }
 
         @Override
@@ -115,6 +120,9 @@ public class DownloadService extends Service {
 
     public class DownloadBinder extends Binder {
 
+        /**
+         * 开始下载
+         */
         public void startDownload(Context mContext, String url) {
             if (downloadTask == null) {
                 context = mContext;
@@ -127,8 +135,15 @@ public class DownloadService extends Service {
             }
         }
 
+        /**
+         * 继续下载
+         */
+        public void continueDownload() {
+            startDownload(context, downloadUrl);
+        }
+
         private void initProgressBar(Context mContext) {
-            DialogUtils.getInstance().showDialog( mContext);
+            DialogUtils.getInstance().showDialog(mContext);
         }
 
         public void pauseDownload() {

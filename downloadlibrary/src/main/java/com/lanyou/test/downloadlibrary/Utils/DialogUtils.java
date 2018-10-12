@@ -20,6 +20,7 @@ public class DialogUtils {
     }
 
     private static DialogUtils instance;
+    DownloadDialog downloadDialog;
 
     /**
      * 获取单例子dialogUtils
@@ -37,8 +38,6 @@ public class DialogUtils {
         return instance;
     }
 
-    DownloadDialog downloadDialog;
-
     /**
      * 创建dialog
      */
@@ -47,7 +46,8 @@ public class DialogUtils {
             synchronized (DialogUtils.this) {
                 if (downloadDialog == null) {
                     downloadDialog = new DownloadDialog(mContext);
-                    downloadDialog.setCanceledOnTouchOutside(true);
+                    downloadDialog.setCancelable(true);
+                    initListener();
                 }
             }
         }
@@ -56,52 +56,52 @@ public class DialogUtils {
         return downloadDialog;
     }
 
-
-    public void updateDialogUI(int progress) {
-    /*    if (progress == 100) {
-            DialogUtils.getInstance().dismissDialog();
-            return;
-        } else {*/
-        downloadDialog.setProgress(progress);
-        updateDialog();
-        /* }*/
-    }
-
-    public void updateDialog() {
-        final int downloadStatus = DownloadService.getBinder().getDownloadStatus();
-        String sureButton = Constants.getDownloadStatusString(downloadStatus);
-        String title = Constants.getDownloadTitle(downloadStatus);
-        downloadDialog.setTitle(title);
-        downloadDialog.setOnRightListener(sureButton, new View.OnClickListener() {
+    private void initListener() {
+        downloadDialog.setOnRightListener("确定", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO:  2018/10/11 lpengcheng
-                //处理右击
-                if (downloadStatus == Constants.DOWNLOAD_TYPE_SUCCESS) {
-                    String path = Constants.getLocalDownloadApkFile().getPath();
-                    Log.e("download", "要安装的本地路径：" + path);
-                    AndroidUtil.installApk(MyApp.getContext(), path);
-                    // dismissDialog();
-                } /*else if (downloadStatus == Constants.DOWNLOAD_TYPE_FAILED) {
-                    retValue = "确定";
+                int downloadStatus = DownloadService.getBinder().getDownloadStatus();
+                if (downloadStatus == Constants.DOWNLOAD_TYPE_FAILED) {
+                    DownloadService.getBinder().cancelDownload();
+                    dismissDialog();
                 } else if (downloadStatus == Constants.DOWNLOAD_TYPE_PAUSED) {
-                    retValue = "继续下载";
+                    DownloadService.getBinder().continueDownload();
                 } else if (downloadStatus == Constants.DOWNLOAD_TYPE_CANCELED) {
-                    retValue = "确定";
+                    DownloadService.getBinder().cancelDownload();
+                    dismissDialog();
                 } else if (downloadStatus == Constants.DOWNLOAD_TYPE_DOWNLOAD) {
-                    retValue = "暂停";
-                }*/
-
+                    DownloadService.getBinder().pauseDownload();
+                }
             }
         });
-
         downloadDialog.setOnLeftListener("取消", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 downloadDialog.dismiss();
-                DownloadService.getBinder().cancelDownload();
             }
         });
+    }
+
+
+    public void updateProgress(int progress) {
+        downloadDialog.setProgress(progress);
+        updateDialog();
+    }
+
+    public void updateDialog() {
+        final int downloadStatus = DownloadService.getBinder().getDownloadStatus();
+        if (downloadStatus == Constants.DOWNLOAD_TYPE_SUCCESS) {
+            String path = Constants.getLocalDownloadApkFile().getPath();
+            Log.e(Constants.TAG, "要安装的本地路径：" + path);
+            AndroidUtil.installApk(MyApp.getContext(), path);
+            dismissDialog();
+            return;
+        }
+
+        String sureButton = Constants.getDownloadStatusString(downloadStatus);
+        String title = Constants.getDownloadTitle(downloadStatus);
+        downloadDialog.setRightext(sureButton);
+        downloadDialog.setTitle(title);
     }
 
     /**

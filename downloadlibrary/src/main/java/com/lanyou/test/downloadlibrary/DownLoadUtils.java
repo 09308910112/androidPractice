@@ -37,7 +37,6 @@ public class DownLoadUtils {
         } else {
             Toast.makeText(mContext, "请打开写入sd卡的权限", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     /**
@@ -47,7 +46,6 @@ public class DownLoadUtils {
         if (downloadBinder != null) {
             downloadBinder.pauseDownload();
         }
-
     }
 
     /**
@@ -71,11 +69,10 @@ public class DownLoadUtils {
             public void onServiceConnected(ComponentName name, IBinder service) {
                 downloadBinder = (DownloadService.DownloadBinder) service;
                 downloadBinder.startDownload(mContext, downloadUrl);
-                Log.e("download", "已连接");
+                Log.e(Constants.TAG, "已连接");
             }
 
             @Override
-
             public void onServiceDisconnected(ComponentName name) {
 
             }

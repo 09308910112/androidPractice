@@ -10,10 +10,10 @@ import android.widget.TextView;
 
 import com.lanyou.test.downloadlibrary.R;
 
-/**
- * @author Wingbiu
- */
 
+/**
+ * @author lpc
+ */
 public class DownloadDialog extends Dialog {
 
     private Context mContext ;
@@ -82,6 +82,4 @@ public class DownloadDialog extends Dialog {
             progressbar.setProgress(progress);
         }
     }
-
-
 }
