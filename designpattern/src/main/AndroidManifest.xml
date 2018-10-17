@@ -18,6 +18,7 @@
         </activity>
         <activity android:name=".strategy.first.StrategyPatternActivity"/>
         <activity android:name=".strategy.second.StrategyPatternActivity02"/>
+        <activity android:name=".decorator.first.DecoratorPatternActivity01"/>
     </application>
 
 </manifest>
