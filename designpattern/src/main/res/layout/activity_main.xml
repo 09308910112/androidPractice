@@ -25,12 +25,22 @@
         android:onClick="strategy02"/>
 
     <TextView
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:text="装饰者设计模式01"
+    android:background="@android:color/darker_gray"
+    android:textColor="@android:color/white"
+    android:gravity="center"
+    android:layout_marginTop="5dp"
+    android:onClick="decorate01"/>
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:text="装饰者设计模式01"
+        android:text="装饰者设计模式02"
         android:background="@android:color/darker_gray"
         android:textColor="@android:color/white"
         android:gravity="center"
         android:layout_marginTop="5dp"
-        android:onClick="decorate01"/>
+        android:onClick="decorate02"/>
 </LinearLayout>
