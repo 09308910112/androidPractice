@@ -27,13 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-      Button btn =   findViewById(R.id.btn_start);
-      btn.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-              rxJavaCountDown();
-          }
-      });
+
         //timerCountDown();
     }
 
