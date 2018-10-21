@@ -19,6 +19,7 @@
       <module fileurl="file://$PROJECT_DIR$/qtscrollview/qtscrollview.iml" filepath="$PROJECT_DIR$/qtscrollview/qtscrollview.iml" />
       <module fileurl="file://$PROJECT_DIR$/readFile/readFile.iml" filepath="$PROJECT_DIR$/readFile/readFile.iml" />
       <module fileurl="file://$PROJECT_DIR$/rvdemo/rvdemo.iml" filepath="$PROJECT_DIR$/rvdemo/rvdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/scanview/scanview.iml" filepath="$PROJECT_DIR$/scanview/scanview.iml" />
       <module fileurl="file://$PROJECT_DIR$/servicedemo/servicedemo.iml" filepath="$PROJECT_DIR$/servicedemo/servicedemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/simplescanqr/simplescanqr.iml" filepath="$PROJECT_DIR$/simplescanqr/simplescanqr.iml" />
       <module fileurl="file://$PROJECT_DIR$/slidingarcview/slidingarcview.iml" filepath="$PROJECT_DIR$/slidingarcview/slidingarcview.iml" />
