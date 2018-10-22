@@ -64,4 +64,24 @@
         android:gravity="center"
         android:layout_marginTop="5dp"
         android:onClick="proxy"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="抽象工厂设计模式"
+        android:background="@android:color/darker_gray"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:onClick="absFactory"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="抽象工厂设计模式02"
+        android:background="@android:color/darker_gray"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:onClick="abs2Factory"/>
 </LinearLayout>

@@ -21,6 +21,8 @@
         <activity android:name=".decorator.first.DecoratorPatternActivity01"/>
         <activity android:name=".decorator.second.DecoratorPatternActivity02"/>
         <activity android:name=".proxy.ProxyActivity"/>
+        <activity android:name=".abstractfactory.first.AbsFactoryActivity"/>
+        <activity android:name=".abstractfactory.second.AbsFactory02Activity"/>
         <activity
             android:name=".factory.FactoryActivity"
             android:label="@string/title_activity_factory"

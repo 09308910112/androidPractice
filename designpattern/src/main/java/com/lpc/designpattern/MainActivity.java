@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.lpc.designpattern.abstractfactory.first.AbsFactoryActivity;
+import com.lpc.designpattern.abstractfactory.second.AbsFactory02Activity;
 import com.lpc.designpattern.decorator.first.DecoratorPatternActivity01;
 import com.lpc.designpattern.decorator.second.DecoratorPatternActivity02;
 import com.lpc.designpattern.factory.FactoryActivity;
@@ -45,6 +47,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void proxy(View view) {
         startActivity(new Intent(this, ProxyActivity.class));
+    }
+    public void absFactory(View view) {
+        startActivity(new Intent(this, AbsFactoryActivity.class));
+    }
+    public void abs2Factory(View view) {
+        startActivity(new Intent(this, AbsFactory02Activity.class));
     }
 
 }
