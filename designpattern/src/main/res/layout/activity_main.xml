@@ -53,4 +53,15 @@
         android:gravity="center"
         android:layout_marginTop="5dp"
         android:onClick="factory"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="代理设计模式"
+        android:background="@android:color/darker_gray"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:onClick="proxy"/>
 </LinearLayout>

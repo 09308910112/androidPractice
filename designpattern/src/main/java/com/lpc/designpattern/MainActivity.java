@@ -8,8 +8,9 @@ import android.view.View;
 import com.lpc.designpattern.decorator.first.DecoratorPatternActivity01;
 import com.lpc.designpattern.decorator.second.DecoratorPatternActivity02;
 import com.lpc.designpattern.factory.FactoryActivity;
-import com.lpc.designpattern.strategy.second.StrategyPatternActivity02;
+import com.lpc.designpattern.proxy.ProxyActivity;
 import com.lpc.designpattern.strategy.first.StrategyPatternActivity;
+import com.lpc.designpattern.strategy.second.StrategyPatternActivity02;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,12 +34,17 @@ public class MainActivity extends AppCompatActivity {
     public void decorate01(View view) {
         startActivity(new Intent(this, DecoratorPatternActivity01.class));
     }
+
     public void decorate02(View view) {
         startActivity(new Intent(this, DecoratorPatternActivity02.class));
     }
 
     public void factory(View view) {
         startActivity(new Intent(this, FactoryActivity.class));
+    }
+
+    public void proxy(View view) {
+        startActivity(new Intent(this, ProxyActivity.class));
     }
 
 }

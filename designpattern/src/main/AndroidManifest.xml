@@ -20,6 +20,7 @@
         <activity android:name=".strategy.second.StrategyPatternActivity02"/>
         <activity android:name=".decorator.first.DecoratorPatternActivity01"/>
         <activity android:name=".decorator.second.DecoratorPatternActivity02"/>
+        <activity android:name=".proxy.ProxyActivity"/>
         <activity
             android:name=".factory.FactoryActivity"
             android:label="@string/title_activity_factory"
