@@ -4,22 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:background="#888888"
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/btn"
-        android:layout_width="100dp"
+        android:id="@+id/btn1"
+        android:layout_width="90dp"
         android:layout_height="100dp"
         android:clickable="true"
         android:background="@color/colorAccent"
         android:layout_marginTop="20dp"
-        android:text="我是一个hack001"/>
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:text="首页"/>
 
-    <ImageView
-        android:id="@+id/btn1"
-        android:layout_marginTop="30dp"
-        android:layout_width="20dp"
-        android:layout_height="20dp"/>
+
+    <TextView
+        android:id="@+id/btn2"
+        android:layout_width="90dp"
+        android:layout_height="100dp"
+        android:clickable="true"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:text="分类"/>
+
+    <TextView
+        android:id="@+id/btn3"
+        android:layout_width="90dp"
+        android:layout_height="100dp"
+        android:clickable="true"
+        android:background="@color/colorAccent"
+        android:textColor="#ffffff"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:layout_marginRight="5dp"
+        android:text="购物车"/>
+
+    <TextView
+        android:id="@+id/btn4"
+        android:layout_width="90dp"
+        android:layout_height="100dp"
+        android:clickable="true"
+        android:background="@color/colorPrimary"
+        android:textColor="#ffffff"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="我的"/>
 </LinearLayout>
