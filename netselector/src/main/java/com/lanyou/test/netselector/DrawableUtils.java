@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -21,7 +22,8 @@ public class DrawableUtils {
     String normalUrl;
     String checkedUrl;
     OnLoadDrawableCallBack callBack;
-    TextView targetView;
+    RadioButton targetView;
+    TextView textView;
 
     /**
      * 通过回调获取drawable
@@ -36,23 +38,26 @@ public class DrawableUtils {
         this.normalUrl = normalUrl;
         this.checkedUrl = checkedUrl;
         this.callBack = callBack;
-        //drawable = new StateListDrawable();
         loadFirstImage();
     }
 
     /**
      * 设置drawable到targetView
-     *
-     * @param mContext
-     * @param normalUrl
-     * @param checkedUrl
-     * @param targetView
      */
-    public void setSelectDrawable(Context mContext, String normalUrl, String checkedUrl, TextView targetView) {
+    public void setSelectDrawable(Context mContext, String normalUrl, String checkedUrl, RadioButton targetView) {
+        this.targetView = targetView;
+        initData(mContext,  normalUrl,  checkedUrl);
+    }
+
+    public void setSelectTextViewDrawable(Context mContext, String normalUrl, String checkedUrl, TextView textView) {
+        this.textView = textView;
+        initData(mContext,  normalUrl,  checkedUrl);
+    }
+
+    private void initData(Context mContext, String normalUrl, String checkedUrl) {
         this.mContext = mContext;
         this.normalUrl = normalUrl;
         this.checkedUrl = checkedUrl;
-        this.targetView = targetView;
         loadFirstImage();
     }
 
@@ -62,7 +67,7 @@ public class DrawableUtils {
             @Override
             public void onResourceReady(@NonNull Drawable resource, @Nullable com.bumptech.glide.request.transition
                     .Transition<? super Drawable> transition) {
-                drawable.addState(new int[]{-android.R.attr.state_pressed}, resource);
+                drawable.addState(new int[]{-android.R.attr.state_checked}, resource);
                 drawable.setBounds(0, 0, 150, 150);
                 loadSecondImage();
             }
@@ -77,13 +82,15 @@ public class DrawableUtils {
             @Override
             public void onResourceReady(@NonNull Drawable resource, @Nullable com.bumptech.glide.request.transition
                     .Transition<? super Drawable> transition) {
-                drawable.addState(new int[]{android.R.attr.state_pressed}, resource);
+                drawable.addState(new int[]{android.R.attr.state_checked}, resource);
                 drawable.setBounds(0, 0, 150, 150);
                 if (callBack != null) {
                     callBack.loadDrawableSuccess(drawable);
                 }
                 if (targetView != null) {
                     targetView.setCompoundDrawables(null, drawable, null, null);
+                }else if(textView != null){
+                    textView.setCompoundDrawables(null, drawable, null, null);
                 }
             }
         };
