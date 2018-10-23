@@ -15,6 +15,7 @@
       <module fileurl="file://$PROJECT_DIR$/longrunservice/longrunservice.iml" filepath="$PROJECT_DIR$/longrunservice/longrunservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/myframe/myframe.iml" filepath="$PROJECT_DIR$/myframe/myframe.iml" />
       <module fileurl="file://$PROJECT_DIR$/mylib/mylib.iml" filepath="$PROJECT_DIR$/mylib/mylib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/netselector/netselector.iml" filepath="$PROJECT_DIR$/netselector/netselector.iml" />
       <module fileurl="file://$PROJECT_DIR$/progressbarloading/progressbarloading.iml" filepath="$PROJECT_DIR$/progressbarloading/progressbarloading.iml" />
       <module fileurl="file://$PROJECT_DIR$/qtscrollview/qtscrollview.iml" filepath="$PROJECT_DIR$/qtscrollview/qtscrollview.iml" />
       <module fileurl="file://$PROJECT_DIR$/readFile/readFile.iml" filepath="$PROJECT_DIR$/readFile/readFile.iml" />
