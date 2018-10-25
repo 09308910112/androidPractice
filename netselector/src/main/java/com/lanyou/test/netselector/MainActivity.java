@@ -33,5 +33,6 @@ public class MainActivity extends AppCompatActivity {
                 "1396845332&fm=200&gp=0.jpg";
         checkedUrl = "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1643843887," +
                 "3215689086&fm=26&gp=0.jpg";
+
     }
 }

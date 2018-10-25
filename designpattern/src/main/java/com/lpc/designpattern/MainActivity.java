@@ -7,6 +7,8 @@ import android.view.View;
 
 import com.lpc.designpattern.abstractfactory.first.AbsFactoryActivity;
 import com.lpc.designpattern.abstractfactory.second.AbsFactory02Activity;
+import com.lpc.designpattern.adapter.first.AdapterActivity;
+import com.lpc.designpattern.adapter.second.Adapter2Activity;
 import com.lpc.designpattern.decorator.first.DecoratorPatternActivity01;
 import com.lpc.designpattern.decorator.second.DecoratorPatternActivity02;
 import com.lpc.designpattern.factory.FactoryActivity;
@@ -51,8 +53,16 @@ public class MainActivity extends AppCompatActivity {
     public void absFactory(View view) {
         startActivity(new Intent(this, AbsFactoryActivity.class));
     }
+
     public void abs2Factory(View view) {
         startActivity(new Intent(this, AbsFactory02Activity.class));
+    }
+
+    public void adapter(View view) {
+        startActivity(new Intent(this, AdapterActivity.class));
+    }
+    public void adapter2(View view) {
+        startActivity(new Intent(this, Adapter2Activity.class));
     }
 
 }

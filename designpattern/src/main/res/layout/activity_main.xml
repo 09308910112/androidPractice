@@ -6,82 +6,106 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:background="@android:color/darker_gray"
+        android:gravity="center"
+        android:onClick="strategy"
         android:text="策略设计模式01"
-        android:background="@android:color/darker_gray"
-        android:textColor="@android:color/white"
-        android:gravity="center"
-        android:onClick="strategy"/>
+        android:textColor="@android:color/white"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray"
+        android:gravity="center"
+        android:onClick="strategy02"
         android:text="策略设计模式02"
-        android:background="@android:color/darker_gray"
-        android:textColor="@android:color/white"
-        android:gravity="center"
-        android:layout_marginTop="5dp"
-        android:onClick="strategy02"/>
-
-    <TextView
-    android:layout_width="match_parent"
-    android:layout_height="40dp"
-    android:text="装饰者设计模式01"
-    android:background="@android:color/darker_gray"
-    android:textColor="@android:color/white"
-    android:gravity="center"
-    android:layout_marginTop="5dp"
-    android:onClick="decorate01"/>
+        android:textColor="@android:color/white"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray"
+        android:gravity="center"
+        android:onClick="decorate01"
+        android:text="装饰者设计模式01"
+        android:textColor="@android:color/white"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray"
+        android:gravity="center"
+        android:onClick="decorate02"
         android:text="装饰者设计模式02"
-        android:background="@android:color/darker_gray"
-        android:textColor="@android:color/white"
-        android:gravity="center"
-        android:layout_marginTop="5dp"
-        android:onClick="decorate02"/>
+        android:textColor="@android:color/white"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray"
+        android:gravity="center"
+        android:onClick="factory"
         android:text="工厂设计模式"
-        android:background="@android:color/darker_gray"
-        android:textColor="@android:color/white"
-        android:gravity="center"
-        android:layout_marginTop="5dp"
-        android:onClick="factory"/>
+        android:textColor="@android:color/white"/>
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray"
+        android:gravity="center"
+        android:onClick="proxy"
         android:text="代理设计模式"
-        android:background="@android:color/darker_gray"
-        android:textColor="@android:color/white"
-        android:gravity="center"
-        android:layout_marginTop="5dp"
-        android:onClick="proxy"/>
+        android:textColor="@android:color/white"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray"
+        android:gravity="center"
+        android:onClick="absFactory"
         android:text="抽象工厂设计模式"
-        android:background="@android:color/darker_gray"
-        android:textColor="@android:color/white"
-        android:gravity="center"
-        android:layout_marginTop="5dp"
-        android:onClick="absFactory"/>
+        android:textColor="@android:color/white"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:text="抽象工厂设计模式02"
-        android:background="@android:color/darker_gray"
-        android:textColor="@android:color/white"
-        android:gravity="center"
         android:layout_marginTop="5dp"
-        android:onClick="abs2Factory"/>
+        android:background="@android:color/darker_gray"
+        android:gravity="center"
+        android:onClick="abs2Factory"
+        android:text="抽象工厂设计模式02"
+        android:textColor="@android:color/white"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray"
+        android:gravity="center"
+        android:onClick="adapter"
+        android:text="适配器调试模式1"
+        android:textColor="@android:color/white"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray"
+        android:gravity="center"
+        android:onClick="adapter2"
+        android:text="适配器调试模式2"
+        android:textColor="@android:color/white"/>
+
+
 </LinearLayout>
