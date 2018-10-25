@@ -11,12 +11,16 @@ import com.lpc.designpattern.adapter.first.AdapterActivity;
 import com.lpc.designpattern.adapter.second.Adapter2Activity;
 import com.lpc.designpattern.decorator.first.DecoratorPatternActivity01;
 import com.lpc.designpattern.decorator.second.DecoratorPatternActivity02;
+import com.lpc.designpattern.facade.FacadeActivity;
 import com.lpc.designpattern.factory.FactoryActivity;
 import com.lpc.designpattern.proxy.ProxyActivity;
 import com.lpc.designpattern.strategy.first.StrategyPatternActivity;
 import com.lpc.designpattern.strategy.second.StrategyPatternActivity02;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static final String TAG = "lpc888";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,5 +68,9 @@ public class MainActivity extends AppCompatActivity {
     public void adapter2(View view) {
         startActivity(new Intent(this, Adapter2Activity.class));
     }
+    public void facade(View view) {
+        startActivity(new Intent(this, FacadeActivity.class));
+    }
+
 
 }
