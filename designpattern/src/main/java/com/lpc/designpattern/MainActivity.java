@@ -12,7 +12,7 @@ import com.lpc.designpattern.adapter.second.Adapter2Activity;
 import com.lpc.designpattern.decorator.first.DecoratorPatternActivity01;
 import com.lpc.designpattern.decorator.second.DecoratorPatternActivity02;
 import com.lpc.designpattern.facade.FacadeActivity;
-import com.lpc.designpattern.factory.FactoryActivity;
+import com.lpc.designpattern.simplefactory.FactoryActivity;
 import com.lpc.designpattern.proxy.ProxyActivity;
 import com.lpc.designpattern.strategy.first.StrategyPatternActivity;
 import com.lpc.designpattern.strategy.second.StrategyPatternActivity02;

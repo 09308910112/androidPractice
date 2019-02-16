@@ -27,7 +27,7 @@
         <activity android:name=".adapter.second.Adapter2Activity"/>
         <activity android:name=".facade.FacadeActivity"/>
         <activity
-            android:name=".factory.FactoryActivity"
+            android:name=".simplefactory.FactoryActivity"
             android:label="@string/title_activity_factory"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>

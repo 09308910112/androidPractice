@@ -3,17 +3,21 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@mipmap/amap_bus"
+        android:icon="@drawable/item1_selector"
         android:title="@string/title_home"/>
 
     <item
         android:id="@+id/navigation_dashboard"
-        android:icon="@mipmap/amap_car"
+        android:icon="@drawable/item1_selector"
         android:title="@string/title_dashboard"/>
 
     <item
         android:id="@+id/navigation_notifications"
-        android:icon="@mipmap/amap_man"
+        android:icon="@drawable/item1_selector"
+        android:title="@string/title_notifications"/>
+    <item
+        android:id="@+id/navigation_notifications1"
+        android:icon="@drawable/item1_selector"
         android:title="@string/title_notifications"/>
 
 </menu>

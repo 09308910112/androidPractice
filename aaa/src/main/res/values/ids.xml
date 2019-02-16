@@ -40,4 +40,10 @@
     <item name="about_version_code" type="id">false</item>
     <item name="split" type="id">false</item>
 
+    <item name="control_air_item" type="id"/>
+    <item name="control_air_status_img" type="id"/>
+    <item name="control_air_status_text" type="id"/>
+
+    <item name="control_light" type="id"/>
+
 </resources>

@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/designpattern/designpattern.iml" filepath="$PROJECT_DIR$/designpattern/designpattern.iml" />
       <module fileurl="file://$PROJECT_DIR$/downloadapplication/downloadapplication.iml" filepath="$PROJECT_DIR$/downloadapplication/downloadapplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/downloadlibrary/downloadlibrary.iml" filepath="$PROJECT_DIR$/downloadlibrary/downloadlibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fragmentlazyload/fragmentlazyload.iml" filepath="$PROJECT_DIR$/fragmentlazyload/fragmentlazyload.iml" />
       <module fileurl="file://$PROJECT_DIR$/jsjavacall/jsjavacall.iml" filepath="$PROJECT_DIR$/jsjavacall/jsjavacall.iml" />
       <module fileurl="file://$PROJECT_DIR$/longrunservice/longrunservice.iml" filepath="$PROJECT_DIR$/longrunservice/longrunservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/myframe/myframe.iml" filepath="$PROJECT_DIR$/myframe/myframe.iml" />
@@ -19,6 +20,8 @@
       <module fileurl="file://$PROJECT_DIR$/progressbarloading/progressbarloading.iml" filepath="$PROJECT_DIR$/progressbarloading/progressbarloading.iml" />
       <module fileurl="file://$PROJECT_DIR$/qtscrollview/qtscrollview.iml" filepath="$PROJECT_DIR$/qtscrollview/qtscrollview.iml" />
       <module fileurl="file://$PROJECT_DIR$/readFile/readFile.iml" filepath="$PROJECT_DIR$/readFile/readFile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recyclerview/recyclerview.iml" filepath="$PROJECT_DIR$/recyclerview/recyclerview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/refresh_lib/refresh_lib.iml" filepath="$PROJECT_DIR$/refresh_lib/refresh_lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/rvdemo/rvdemo.iml" filepath="$PROJECT_DIR$/rvdemo/rvdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/scanview/scanview.iml" filepath="$PROJECT_DIR$/scanview/scanview.iml" />
       <module fileurl="file://$PROJECT_DIR$/servicedemo/servicedemo.iml" filepath="$PROJECT_DIR$/servicedemo/servicedemo.iml" />
@@ -26,6 +29,7 @@
       <module fileurl="file://$PROJECT_DIR$/slidingarcview/slidingarcview.iml" filepath="$PROJECT_DIR$/slidingarcview/slidingarcview.iml" />
       <module fileurl="file://$PROJECT_DIR$/statelistanimator/statelistanimator.iml" filepath="$PROJECT_DIR$/statelistanimator/statelistanimator.iml" />
       <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/viewpagerdemo/viewpagerdemo.iml" filepath="$PROJECT_DIR$/viewpagerdemo/viewpagerdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/x5test/x5test.iml" filepath="$PROJECT_DIR$/x5test/x5test.iml" />
     </modules>
   </component>

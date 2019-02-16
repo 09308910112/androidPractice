@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".factory.FactoryActivity"
+    tools:context=".simplefactory.FactoryActivity"
     tools:showIn="@layout/activity_factory">
     <TextView
         android:id="@+id/tv_result"

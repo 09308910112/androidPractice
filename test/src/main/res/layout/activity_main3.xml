@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Main3Activity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:textColor="@android:color/black"
+        android:textSize="40dp"
+        android:text="开始了"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+    </android.support.v4.view.ViewPager>
+
+    <RadioGroup
+        android:id="@+id/rg_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_below="@+id/vp">
+        <RadioButton
+            android:id="@+id/rb1"
+            android:checked="true"
+            style="@style/bottom_home_tab_selector"
+            android:drawableTop="@drawable/bottom_tab_home_selector"
+            android:text="主页"/>
+
+        <RadioButton
+        android:id="@+id/rb2"
+        style="@style/bottom_home_tab_selector"
+
+        android:drawableTop="@drawable/bottom_tab_home_selector"
+        android:text="控制"/>
+
+        <RadioButton
+            android:id="@+id/rb3"
+            style="@style/bottom_home_tab_selector"
+            android:drawableTop="@drawable/bottom_tab_home_selector"
+            android:text="服务"/>
+    </RadioGroup>
+
+</LinearLayout>

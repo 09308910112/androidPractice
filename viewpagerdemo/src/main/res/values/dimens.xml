@@ -1,0 +1,96 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="text_size_38">38px</dimen>
+    <dimen name="text_size_36">36px</dimen>
+    <dimen name="text_size_34">34px</dimen>
+    <dimen name="text_size_30">30px</dimen>
+    <dimen name="text_size_26">26px</dimen>
+    <dimen name="text_size_24">24px</dimen>
+    <dimen name="text_size_20">20px</dimen>
+    <dimen name="text_size_18">18px</dimen>
+    <dimen name="tool_bar_title_text_size">20sp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!--文字尺寸规范-->
+    <dimen name="string_big">18dp</dimen>
+    <dimen name="string_middle">15dp</dimen>
+    <dimen name="string_middle_small">13dp</dimen>
+    <dimen name="string_small">12dp</dimen>
+    <dimen name="string_extra_small">9dp</dimen>
+
+    <!-- <dimen name="string_big">36px</dimen>
+     <dimen name="string_middle">30px</dimen>
+     <dimen name="string_middle_small">26px</dimen>
+     <dimen name="string_small">24px</dimen>
+     <dimen name="string_extra_small">18px</dimen>-->
+
+
+    <dimen name="text_size_small">13dp</dimen>
+    <dimen name="text_size_normal">15dp</dimen>
+    <dimen name="text_size_middle">16dp</dimen>
+    <dimen name="text_size_big">18dp</dimen>
+
+
+    <dimen name="text_size_14dp">14dp</dimen>
+    <dimen name="text_size_16dp">16dp</dimen>
+    <dimen name="text_size_18dp">18dp</dimen>
+    <dimen name="text_size_20dp">20dp</dimen>
+
+    <dimen name="widget_little_width">291dp</dimen>
+
+    <!--数字尺寸规范-->
+    <dimen name="num_extra_big">55dp</dimen>
+    <dimen name="num_big">36dp</dimen>
+    <dimen name="num_middle">18dp</dimen>
+    <dimen name="num_small">12dp</dimen>
+
+    <!--    <dimen name="num_extra_big">110px</dimen>
+        <dimen name="num_big">72px</dimen>
+        <dimen name="num_middle">36px</dimen>
+        <dimen name="num_small">24px</dimen>-->
+
+    <dimen name="dp_066">0.66dp</dimen>
+    <dimen name="dp_4">4dp</dimen>
+    <dimen name="dp_5">5dp</dimen>
+    <dimen name="dp_10">10dp</dimen>
+    <dimen name="dp_14">14dp</dimen>
+    <dimen name="dp_22">22dp</dimen>
+    <dimen name="dp_36">36dp</dimen>
+    <dimen name="dp_40">40dp</dimen>
+    <dimen name="dp_60">60dp</dimen>
+    <dimen name="dp_72">72dp</dimen>
+
+    <dimen name="sp_12">12sp</dimen>
+    <dimen name="sp_14">14sp</dimen>
+    <dimen name="sp_16">16sp</dimen>
+    <dimen name="sp_18">18sp</dimen>
+
+
+    <dimen name="padding_15">15dp</dimen>
+
+    <dimen name="login_register_size_3dp">3dp</dimen>
+    <dimen name="login_register_size_20sp">20dp</dimen>
+    <dimen name="login_register_size_16sp">16dp</dimen>
+    <dimen name="login_register_size_0dp">0dp</dimen>
+    <dimen name="tool_bar_height">66dp</dimen>
+    <dimen name="tool_bar_padding_top">20dp</dimen>
+    <dimen name="login_register_size_10dp">10dp</dimen>
+    <dimen name="login_register_size_220dp">220dp</dimen>
+
+    <!--距离边缘像素-->
+    <dimen name="dialog_margin_left">15dp</dimen>
+    <dimen name="dialog_margin_right">15dp</dimen>
+    <dimen name="dialog_item_margin">10dp</dimen>
+
+   <!-- <dimen name="control_dialog_width">740px</dimen>-->
+    <dimen name="control_dialog_width">370dp</dimen>
+    <dimen name="seek_bar_height">10dp</dimen>
+
+    <dimen name="control_dialog_drawable_padding">5dp</dimen>
+
+    <dimen name="control_air_item_width">70dp</dimen>
+    <dimen name="control_air_item_height">40dp</dimen>
+    <dimen name="control_viewpager_item_height">120dp</dimen>
+
+</resources>

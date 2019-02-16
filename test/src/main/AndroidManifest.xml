@@ -2,6 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.lanyou.lpc.test">
 
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,13 +23,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Main3Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <!--
+        <activity android:name=".Main2Activity">MainActivity
+        </activity>
+        -->
+<!--        &lt;!&ndash;<activity&ndash;&gt;
+            &lt;!&ndash;android:name=".Main3Activity"&ndash;&gt;
+            &lt;!&ndash;android:label="@string/title_activity_main3"&ndash;&gt;
+            &lt;!&ndash;android:theme="@style/AppTheme.NoActionBar">&ndash;&gt;
+            &lt;!&ndash;<intent-filter>&ndash;&gt;
+                &lt;!&ndash;<action android:name="android.intent.action.MAIN"/>&ndash;&gt;
+
+                &lt;!&ndash;<category android:name="android.intent.category.LAUNCHER"/>&ndash;&gt;
+            &lt;!&ndash;</intent-filter>&ndash;&gt;
+        &lt;!&ndash;</activity>-->
     </application>
 
 </manifest>
