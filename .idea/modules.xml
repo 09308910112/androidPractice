@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AndroidProjectRepository.iml" filepath="$PROJECT_DIR$/AndroidProjectRepository.iml" />
       <module fileurl="file://$PROJECT_DIR$/TopNewGrid/TopNewGrid.iml" filepath="$PROJECT_DIR$/TopNewGrid/TopNewGrid.iml" />
-      <module fileurl="file://$PROJECT_DIR$/androidPractice.iml" filepath="$PROJECT_DIR$/androidPractice.iml" />
-      <module fileurl="file://$PROJECT_DIR$/baidumapdemo/baidumapdemo.iml" filepath="$PROJECT_DIR$/baidumapdemo/baidumapdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/customview/customview.iml" filepath="$PROJECT_DIR$/customview/customview.iml" />
       <module fileurl="file://$PROJECT_DIR$/designpattern/designpattern.iml" filepath="$PROJECT_DIR$/designpattern/designpattern.iml" />
       <module fileurl="file://$PROJECT_DIR$/downloadapplication/downloadapplication.iml" filepath="$PROJECT_DIR$/downloadapplication/downloadapplication.iml" />
