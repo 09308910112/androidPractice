@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -62,11 +63,23 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         btnChange = findViewById(R.id.btn_change);
-        LinearLayoutManager manager = new LinearLayoutManager(this);
-        manager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(manager);
+
+        recyclerView.setLayoutManager(getLinearLayoutManager());
+        recyclerView.addItemDecoration(new RecycleViewDivider(this, LinearLayoutManager.HORIZONTAL));
         adaper = new RVAdaper(this, dataList);
         recyclerView.setAdapter(adaper);
+    }
+
+    public GridLayoutManager getGridLayoutManager() {
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
+        gridLayoutManager.setOrientation(GridLayoutManager.VERTICAL);
+        return gridLayoutManager;
+    }
+
+    public LinearLayoutManager getLinearLayoutManager() {
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        manager.setOrientation(LinearLayoutManager.VERTICAL);
+        return manager;
     }
 
     public class RVAdaper extends RecyclerView.Adapter<RVViewHolder> {
@@ -83,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             this.dataBeanList = dataBeanList;
         }
 
-        public void setRecyclerDataBean(ArrayList<RecyclerDataBean> dataBeanList){
+        public void setRecyclerDataBean(ArrayList<RecyclerDataBean> dataBeanList) {
             this.dataBeanList = dataBeanList;
             notifyDataSetChanged();
         }
@@ -99,15 +112,15 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull RVViewHolder holder, final int position) {
             holder.tvMsg.setText(dataBeanList.get(position).getMsg());
-            if(posSelected == position){
+            if (posSelected == position) {
                 holder.tvMsg.setTextColor(Color.RED);
-            }else{
+            } else {
                 holder.tvMsg.setTextColor(Color.WHITE);
             }
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(posSelected != position){
+                    if (posSelected != position) {
                         posSelected = position;
                         notifyDataSetChanged();
                     }
@@ -124,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
 
     private class RVViewHolder extends RecyclerView.ViewHolder {
         TextView tvMsg;
+
         public RVViewHolder(View itemView) {
             super(itemView);
             tvMsg = itemView.findViewById(R.id.tv_msg);
