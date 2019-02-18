@@ -104,9 +104,8 @@ public class MainActivity extends AppCompatActivity {
         @NonNull
         @Override
         public RVViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View viewItem = LayoutInflater.from(getApplicationContext()).inflate(R.layout.layout_recyclerview_item,
-                    parent, false);
-            return new RVViewHolder(viewItem);
+            View view = LayoutInflater.from(context).inflate(R.layout.layout_recyclerview_item, parent, false);
+            return new RVViewHolder(view);
         }
 
         @Override
