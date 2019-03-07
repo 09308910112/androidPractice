@@ -1,5 +1,7 @@
 package com.lanyou.test.viewpagerdemo;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
@@ -22,11 +24,11 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btnChange;
     private ViewPager viewPager;
-    HashMap<String, LinearLayout> itemHashMap = new HashMap<>();
     /**
-     * 保存view列表
+     * key :index
+     * value : LinearLayout
      */
-    ArrayList<LinearLayout> pagerViewList = new ArrayList<>();
+    HashMap<Integer, LinearLayout> itemHashMap = new HashMap<>();
     private PagerAdapter adapter;
     private Button btnRemove;
     private TextView tvShow;
@@ -36,10 +38,25 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Log.e("lpc666","onCreate()");
         setContentView(R.layout.activity_main);
         initView();
         initData();
         initListener();
+
+
+        //实例化SharedPreferences对象,参数1是存储文件的名称，参数2是文件的打开方式，当文件不存在时，直接创建，如果存在，则直接使用
+        SharedPreferences mySharePreferences = getSharedPreferences("test666", AppCompatActivity.MODE_PRIVATE);
+
+        //实例化SharedPreferences.Editor对象
+        SharedPreferences.Editor editor = mySharePreferences.edit();
+
+        //用putString的方法保存数据
+        editor.putString("3333", "tinyphp");
+
+        //提交数据
+        editor.commit();
     }
 
     int index = 0;
@@ -49,6 +66,10 @@ public class MainActivity extends AppCompatActivity {
         btnChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(true){
+                    startActivity(new Intent(MainActivity.this,Main2Activity.class));
+                    return;
+                }
                 Toast.makeText(MainActivity.this, "添加了一个", Toast.LENGTH_SHORT).show();
                 CarControlMenuBean bean = new CarControlMenuBean();
                 String name = "条目" + (index++);
@@ -85,17 +106,17 @@ public class MainActivity extends AppCompatActivity {
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i1) {
-                Log.e("lpc777","i = :"+i+",v:"+v+",il:"+i1);
+                Log.e("lpc777", "i = :" + i + ",v:" + v + ",il:" + i1);
 
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) redPoint.getLayoutParams();
                 View firstChildView = ll_gray_point.getChildAt(0);
                 View secondChildView = ll_gray_point.getChildAt(1);
-                int viewMargin =secondChildView.getLeft() - firstChildView.getLeft();
+                int viewMargin = secondChildView.getLeft() - firstChildView.getLeft();
 
-                float scrollDistance = viewMargin*i+viewMargin*v;
+                float scrollDistance = viewMargin * i + viewMargin * v;
 
                 layoutParams.leftMargin = (int) scrollDistance;
-                Log.e("lpc777","margin:"+layoutParams.leftMargin);
+                Log.e("lpc777", "margin:" + layoutParams.leftMargin);
                 redPoint.setLayoutParams(layoutParams);
             }
 
@@ -135,19 +156,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initDefaultViewPagerData() {
-        pagerViewList.clear();
         LayoutInflater li = getLayoutInflater();
         int pageCount = getPageCount();
-        Log.e("lpc777","pageCount:"+pageCount);
+        Log.e("lpc777", "pageCount:" + pageCount);
         for (int i = 0; i < pageCount; i++) {
             final LinearLayout llItemView = (LinearLayout) li.inflate(R.layout.pager_item, null, false);
             CarControlMenuBean bean = dataList.get(i);
             llItemView.setTag(dataList.get(i).getDisplayItemName());
             TextView tv = llItemView.findViewById(R.id.tv);
             tv.setText(dataList.get(i).getDisplayItemName());
-
-            itemHashMap.put(bean.getDisplayItemCode(), llItemView);
-            pagerViewList.add((llItemView));
+            itemHashMap.put(i, llItemView);
             llItemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -177,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
             @NonNull
             @Override
             public Object instantiateItem(@NonNull ViewGroup container, int position) {
-                final LinearLayout pagerView = pagerViewList.get(position);
+                final LinearLayout pagerView = itemHashMap.get(position);
                 container.addView(pagerView);
                 return pagerView;
             }
@@ -205,12 +223,53 @@ public class MainActivity extends AppCompatActivity {
 
     private void initDotView() {
         ll_gray_point.removeAllViews();
-        for(int i = 0; i < dataList.size();i++ ){
+        for (int i = 0; i < dataList.size(); i++) {
             TextView tv = new TextView(this);
             tv.setBackgroundResource(R.drawable.ic_dot_shape);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(60,20);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(60, 20);
             layoutParams.rightMargin = 20;
-            ll_gray_point.addView(tv,layoutParams);
+            ll_gray_point.addView(tv, layoutParams);
         }
+    }
+
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.e("lpc666","onRestart");
+
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        Log.e("lpc666","onNewIntent");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.e("lpc666","onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.e("lpc666","onPause");
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.e("lpc666","onStart");
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.e("lpc666","onDestroy");
+
     }
 }
