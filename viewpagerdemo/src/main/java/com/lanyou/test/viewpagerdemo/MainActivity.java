@@ -34,12 +34,13 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvShow;
     private LinearLayout ll_gray_point;
     private View redPoint;
+    private Button testSingleTaskBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Log.e("lpc666","onCreate()");
+        Log.e("lpc666", "onCreate()");
         setContentView(R.layout.activity_main);
         initView();
         initData();
@@ -63,13 +64,17 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<CarControlMenuBean> dataList = CarControlMenuBean.getControlMenuDataList();
 
     private void initListener() {
+
+        testSingleTaskBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, Main2Activity.class));
+            }
+        });
         btnChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(true){
-                    startActivity(new Intent(MainActivity.this,Main2Activity.class));
-                    return;
-                }
+
                 Toast.makeText(MainActivity.this, "添加了一个", Toast.LENGTH_SHORT).show();
                 CarControlMenuBean bean = new CarControlMenuBean();
                 String name = "条目" + (index++);
@@ -217,6 +222,7 @@ public class MainActivity extends AppCompatActivity {
         btnChange = findViewById(R.id.btn_change);
         btnRemove = findViewById(R.id.btn_remove);
         tvShow = findViewById(R.id.tv_show);
+        testSingleTaskBtn = findViewById(R.id.testSingleTask);
         ll_gray_point = findViewById(R.id.ll_gray_point);
         redPoint = findViewById(R.id.red_point);
     }
@@ -236,40 +242,40 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.e("lpc666","onRestart");
+        Log.e("lpc666", "onRestart");
 
     }
 
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        Log.e("lpc666","onNewIntent");
+        Log.e("lpc666", "onNewIntent");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.e("lpc666","onResume");
+        Log.e("lpc666", "onResume");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.e("lpc666","onPause");
+        Log.e("lpc666", "onPause");
 
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Log.e("lpc666","onStart");
+        Log.e("lpc666", "onStart");
 
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.e("lpc666","onDestroy");
+        Log.e("lpc666", "onDestroy");
 
     }
 }

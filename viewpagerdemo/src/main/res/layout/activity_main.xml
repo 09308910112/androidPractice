@@ -7,7 +7,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
-
+    <Button
+        android:id="@+id/testSingleTask"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="测试SingleTask启动模式"/>
     <Button
         android:id="@+id/btn_change"
         android:layout_width="match_parent"
