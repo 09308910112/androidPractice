@@ -25,6 +25,60 @@ android {
 
 }
 
+//====================================================================================
+//=====================自动打包，并上传到蒲公英，在app目录下运行./gradlew myBuild===========
+//====================================================================================
+//上传到蒲公英task
+task myUploadApkTask(type: Exec) {
+    commandLine 'sh', '-c', './uploadApk.sh'
+    //test
+    executable "sh"
+    args "-c", "echo 'shell help to you'"
+}
+
+//运行命令./gradlew myBuild
+//将打包后的文件复制到build目录下，这样就不用深入到apk目录，同时还看不到unaligned的apk了
+task copyTask(type: Copy) {
+    from 'build/outputs/apk/'
+    into 'apkFile/'
+    exclude '*-unaligned.apk'
+}
+
+//删除所有apk文件
+task delAllApkFiles() {
+    println("删除apkFile下的apk文件")
+    FileTree tree = fileTree("apkFile/")
+    tree.visit {
+        element ->
+            if (element.getName().endsWith(".apk")) {
+                println "$element.file.name" + " " + element.getName()
+                delete element.file
+            }
+    }
+
+    println("删除build下的apk文件")
+    FileTree oldTree = fileTree("build/outputs/apk/")
+    oldTree.visit {
+        element ->
+            delete element.file
+    }
+}
+
+//generate local apk and upload pugongying
+task myBuild() {
+    dependsOn 'delAllApkFiles'
+    dependsOn 'assembleRelease'
+    dependsOn 'copyTask'
+    dependsOn 'myUploadApkTask'
+}
+
+// generate local apk
+task buildApk(){
+    dependsOn 'delAllApkFiles'
+    dependsOn 'assembleRelease'
+    dependsOn 'copyTask'
+}
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:28.0.0'
@@ -33,5 +87,5 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:3.0.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile files('libs/commons-codec-1.9.jar')
+    compile project(':utillibrary')
 }
